@@ -38,8 +38,24 @@ public class AlunoDaoImp implements AlunoDao {
 
 	@Override
 	public String update(Aluno aluno) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "update aluno set nome=?,ra=? where matricula=?";
+		Connection con = ConnectionFactory.getConnection();
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, aluno.getNome());
+			pst.setString(2, aluno.getRa());
+			pst.setInt(3, aluno.getMatricula());
+			int res = pst.executeUpdate();
+			if (res > 0) {
+				return "Alterado com sucesso.";
+			} else {
+				return "Erro ao alterar.";
+			}
+		} catch (SQLException e) {
+			return e.getMessage();
+		} finally {
+			ConnectionFactory.close(con);
+		}
 	}
 
 	@Override
