@@ -1,0 +1,56 @@
+package br.com.prog3.atividade8aula12.persistence;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import br.com.prog3.atividade8aula12.model.Aluno;
+
+public class AlunoDaoImp implements AlunoDao {
+	@Override
+	public String save(Aluno aluno) {
+		String sql = "insert into aluno values(?,?,?)";
+		Connection con = ConnectionFactory.getConnection();
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setInt(1, aluno.getMatricula());
+			pst.setString(2, aluno.getNome());
+			pst.setString(3, aluno.getRa());
+			int res = pst.executeUpdate();
+			if (res > 0) {
+				return "Inserido com sucesso.";
+			} else {
+				return "Erro ao inserir.";
+			}
+		} catch (SQLException e) {
+			return e.getMessage();
+		} finally {
+			ConnectionFactory.close(con);
+		}
+	}
+
+	@Override
+	public String delete(int matricula) {
+// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String update(Aluno aluno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Aluno> list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Aluno findByMatricula(int matricula) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
