@@ -13,12 +13,13 @@ public class Teste {
 		 * a.setNome("Maria Paula"); a.setRa("Taguatinga");
 		 * System.out.println(ad.save(a));
 		 */
+		/*
+		 * AlunoDaoImp ad = new AlunoDaoImp(); Aluno a = new Aluno(); a.setMatricula(6);
+		 * a.setNome("Maria Paula Almeida"); a.setRa("Taguatinga Norte");
+		 * System.out.println(ad.update(a));
+		 */
 		AlunoDaoImp ad = new AlunoDaoImp();
-		Aluno a = new Aluno();
-		a.setMatricula(6);
-		a.setNome("Maria Paula Almeida");
-		a.setRa("Taguatinga Norte");
-		System.out.println(ad.update(a));
+		System.out.println(ad.delete(6));
 	}
 
 }

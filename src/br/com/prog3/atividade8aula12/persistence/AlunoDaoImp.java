@@ -32,8 +32,22 @@ public class AlunoDaoImp implements AlunoDao {
 
 	@Override
 	public String delete(int matricula) {
-// TODO Auto-generated method stub
-		return null;
+		String sql = "delete from aluno where matricula=?";
+		Connection con = ConnectionFactory.getConnection();
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setInt(1, matricula);
+			int res = pst.executeUpdate();
+			if (res > 0) {
+				return "Excluído com sucesso.";
+			} else {
+				return "Erro ao excluir.";
+			}
+		} catch (SQLException e) {
+			return e.getMessage();
+		} finally {
+			ConnectionFactory.close(con);
+		}
 	}
 
 	@Override
