@@ -22,12 +22,17 @@ public class Teste {
 		/*
 		 * AlunoDaoImp ad = new AlunoDaoImp(); System.out.println(ad.delete(6));
 		 */
-		AlunoDaoImp ad = new AlunoDaoImp();
+		/*AlunoDaoImp ad = new AlunoDaoImp();
 		List<Aluno> alunos = ad.list();
 		if (alunos != null) {
 			for (Aluno al : alunos) {
 				System.out.println("Aluno: " + al.getNome());
 			}
+		}*/
+		AlunoDaoImp ad = new AlunoDaoImp();
+		Aluno aluno = ad.findByMatricula(2);
+		if (aluno != null) {
+			System.out.println(aluno.getNome());
 		}
 	}
 

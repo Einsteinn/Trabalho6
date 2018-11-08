@@ -103,7 +103,25 @@ public class AlunoDaoImp implements AlunoDao {
 
 	@Override
 	public Aluno findByMatricula(int matricula) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from aluno where matricula=?";
+		Aluno aluno = new Aluno();
+		Connection con = ConnectionFactory.getConnection();
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setInt(1, matricula);
+			ResultSet rs = pst.executeQuery();
+			if (rs.next()) {
+				aluno.setMatricula(rs.getInt(1));
+				aluno.setNome(rs.getString(2));
+				aluno.setRa(rs.getString(3));
+			} else {
+				aluno = null;
+			}
+		} catch (SQLException e) {
+			aluno = null;
+		} finally {
+			ConnectionFactory.close(con);
+		}
+		return aluno;
 	}
 }
