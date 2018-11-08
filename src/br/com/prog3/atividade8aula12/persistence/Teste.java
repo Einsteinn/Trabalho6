@@ -1,6 +1,7 @@
 package br.com.prog3.atividade8aula12.persistence;
 
 import java.sql.Connection;
+import java.util.List;
 
 import br.com.prog3.atividade8aula12.model.Aluno;
 
@@ -18,8 +19,16 @@ public class Teste {
 		 * a.setNome("Maria Paula Almeida"); a.setRa("Taguatinga Norte");
 		 * System.out.println(ad.update(a));
 		 */
+		/*
+		 * AlunoDaoImp ad = new AlunoDaoImp(); System.out.println(ad.delete(6));
+		 */
 		AlunoDaoImp ad = new AlunoDaoImp();
-		System.out.println(ad.delete(6));
+		List<Aluno> alunos = ad.list();
+		if (alunos != null) {
+			for (Aluno al : alunos) {
+				System.out.println("Aluno: " + al.getNome());
+			}
+		}
 	}
 
 }

@@ -2,7 +2,9 @@ package br.com.prog3.atividade8aula12.persistence;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.prog3.atividade8aula12.model.Aluno;
@@ -74,8 +76,29 @@ public class AlunoDaoImp implements AlunoDao {
 
 	@Override
 	public List<Aluno> list() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from aluno";
+		List<Aluno> alunos = new ArrayList<Aluno>();
+		Connection con = ConnectionFactory.getConnection();
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					Aluno a = new Aluno();
+					a.setMatricula(rs.getInt(1));
+					a.setNome(rs.getString(2));
+					a.setRa(rs.getString(3));
+					alunos.add(a);
+				}
+			} else {
+				alunos = null;
+			}
+		} catch (SQLException e) {
+			alunos = null;
+		} finally {
+			ConnectionFactory.close(con);
+		}
+		return alunos;
 	}
 
 	@Override
