@@ -9,31 +9,32 @@
 	<h:outputStylesheet library="css" name="styles.css" />
 </h:head>
 <h:body>
-	<h:form>
-		<h3>Adicionando alunos</h3>
-		<hr />
-		<table>
-			<tr>
-				<td>Matrícula:</td>
-				<td><p:inputText id="matricula" size="10"
-						value="#{alunoController.matricula}" /></td>
-			</tr>
-			<tr>
-				<td>Nome:</td>
-				<td><p:inputText size="20" value="#{alunoController.nome}" /></td>
-			</tr>
-			<tr>
-				<td>RA:</td>
-				<td><p:inputText size="5" value="#{alunoController.ra}" /></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><p:commandButton value="Inserir"
-						action="#{alunoController.addAluno}" rendered="true">
-					</p:commandButton> <br /> <h:outputText value="#{alunoController.mensagem}" /></td>
-			</tr>
-		</table>
-		<p:commandLink value="Voltar" action="index" />
-	</h:form>
+	<p:panel id="addAluno" header="Adicionar Aluno">
+		<h:form>
+			<table>
+				<tr>
+					<td>Matrícula:</td>
+					<td><p:inputText id="matricula" size="10"
+							value="#{alunoController.matricula}" /></td>
+				</tr>
+				<tr>
+					<td>Nome:</td>
+					<td><p:inputText size="20" value="#{alunoController.nome}" /></td>
+				</tr>
+				<tr>
+					<td>RA:</td>
+					<td><p:inputText size="5" value="#{alunoController.ra}" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><h:commandButton value="Inserir"
+							action="#{alunoController.addAluno}" rendered="true" /></td>
+				</tr>
+			</table>
+			<h:outputText value="#{alunoController.mensagem}" />
+			<br></br>
+			<p:commandLink value="Voltar" action="index" />
+		</h:form>
+	</p:panel>
 </h:body>
 </html>

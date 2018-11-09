@@ -9,25 +9,25 @@
 	<h:outputStylesheet library="css" name="styles.css" />
 </h:head>
 <h:body>
-	<h2>Lista de alunos cadastrados</h2>
-	<br />
-	<h:form>
-		<p:dataTable id="listaAlunos" value="#{alunoController.alunos}"
-			var="aluno">
-			<p:column>
-				<f:facet name="header">Matrícula</f:facet>
+	<p:panel id="lstAlunos" header="Lista de Alunos Cadastrados">
+		<h:form>
+			<p:dataTable id="listaAlunos" value="#{alunoController.alunos}"
+				var="aluno">
+				<p:column>
+					<f:facet name="header">Matrícula</f:facet>
 #{aluno.matricula}
 </p:column>
-			<p:column>
-				<f:facet name="header">Nome</f:facet>
+				<p:column>
+					<f:facet name="header">Nome</f:facet>
 #{aluno.nome}
 </p:column>
-			<p:column>
-				<f:facet name="header">RA</f:facet>
+				<p:column>
+					<f:facet name="header">RA</f:facet>
 				#{aluno.ra}
 </p:column>
 			</p:dataTable>
 			<p:commandLink value="Voltar" action="index" />
-	</h:form>
+		</h:form>
+	</p:panel>
 </h:body>
 </html>

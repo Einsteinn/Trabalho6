@@ -3,19 +3,18 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
+
 <h:head>
 	<title>Atividade 8 da aula 12</title>
 	<h:outputStylesheet library="css" name="styles.css" />
 </h:head>
 <h:body>
-	<h2>Atividade 8 da aula 12</h2>
-	<br />
-	<h:form>
-		<h:commandLink action="listaAlunos" value="Listar alunos">
-		<br />
-		<h:commandLink action="inserirAluno" value = "Inserir aluno" />
-		</h:commandLink>
-	</h:form>
+	<p:panel id="titulo" header="Trabalho 6">
+		<p:tabMenu>
+			<p:menuitem value="Home" url="index.jsf" />
+			<p:menuitem value="Cadastro de alunos" url="inserirAluno.jsf" />
+			<p:menuitem value="Listar alunos" url="listaAlunos.jsf" />
+		</p:tabMenu>
+	</p:panel>
 </h:body>
 </html>

@@ -24,9 +24,9 @@ public class Teste {
 		a.setNome("Maria Paula Almeida");
 		a.setRa("Taguatinga Norte");
 		System.out.println(ad.update(a));
-
+		
 		AlunoDaoImp ad = new AlunoDaoImp();
-		System.out.println(ad.delete(123));
+		System.out.println(ad.delete(7));
 		
 		AlunoDaoImp ad = new AlunoDaoImp();
 		List<Aluno> alunos = ad.list();
